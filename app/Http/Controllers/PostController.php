@@ -15,13 +15,17 @@ class PostController extends Controller
     public function index()
     {
         //fetching all the elequonts 
-        $posts= Post::orderBy('title','desc')->get();
+        // $posts= Post::orderBy('title','desc')->get(); fetching the data through orders
 
         // $post =Post ::where('title','two')->get(); to get the data by title having the 'two' as in
 
         // $posts = Post::all(); getting tall the datas randomly
 
         // $posts= DB::select('SELECT * FROM posts'); getting all the datas by the help of query
+
+
+        $posts = Post::orderBy('title','desc')->paginate(1);
+
 
         // Returning the page  that has been created
         return view('posts.index')->with('posts',$posts);
