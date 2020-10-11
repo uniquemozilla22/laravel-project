@@ -3,6 +3,7 @@
 
 @section('content')
 <h1>This is the post</h1>
+<a href="./posts/create">Create a post</a>
 
     @if (count($posts)>0)
       @foreach($posts as $post)
