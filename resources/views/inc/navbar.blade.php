@@ -4,6 +4,7 @@
       <a class="p-2 text-dark" href="./hello">Home</a>
       <a class="p-2 text-dark" href="./services">Services</a>
       <a class="p-2 text-dark" href="./about">About</a>
+      <a class="p-2 text-dark" href="./posts">Blog</a>
     </nav>
     <a class="btn btn-outline-primary" href="/login">Sign up</a>
   </div>
