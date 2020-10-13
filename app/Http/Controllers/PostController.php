@@ -24,7 +24,7 @@ class PostController extends Controller
         // $posts= DB::select('SELECT * FROM posts'); getting all the datas by the help of query
 
 
-        $posts = Post::orderBy('title','desc')->paginate(1);
+        $posts = Post::orderBy('created_at','desc')->paginate(3);
 
 
         // Returning the page  that has been created
@@ -49,7 +49,20 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'title'=>'required',
+            'body'=>'required'
+        ]);
+
+        // Creating the post in the database
+
+        $post = new Post;
+        
+        $post->title = $request->input('title');
+        $post->body= $request->input('body');
+        $post->save();
+
+        return redirect('./posts')->with('success','Post Created');
     }
 
     /**
