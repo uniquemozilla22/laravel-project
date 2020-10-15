@@ -6,5 +6,5 @@
       <a class="p-2 text-dark" href="./about">About</a>
       <a class="p-2 text-dark" href="./posts">Blog</a>
     </nav>
-    <a class="btn btn-outline-primary" href="/login">Sign up</a>
+    <a class="btn btn-outline-primary" href="./posts/create">Create a Post</a>
   </div>

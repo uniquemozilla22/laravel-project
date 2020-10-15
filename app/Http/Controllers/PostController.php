@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -86,7 +87,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $post= Post::find($id);
+        return view('posts.edit')->with('posts',$post);
     }
 
     /**
@@ -98,7 +101,23 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //tHIS IS THE SAME AS CREATING WE JUST REPLACE THE VALUE by finding the ID
+
+        
+        $this->validate($request,[
+            'title'=>'required',
+            'body'=>'required'
+        ]);
+
+        // Updating the post in the database
+
+        $post =  Post::find($id);
+        
+        $post->title = $request->input('title');
+        $post->body= $request->input('body');
+        $post->save();
+
+        return redirect('./posts')->with('success','Post Updated');
     }
 
     /**
@@ -109,6 +128,27 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //It takes the id and destroys the id from the database method 1(Self Done)
+
+        // $posts= DB::delete("DELETE FROM posts WHERE id = $id");
+
+        // if($posts)
+        // {
+        //     return redirect('./posts')->with('success','Post Deleted');
+
+        // }
+        // else{
+        // return redirect('./posts')->with('error','Post not removed');
+
+        // }
+
+            // Guided Method of doing the delete(Method 2) By finding the ID 
+        $posts=Post::find($id);
+        $posts->delete();
+        return redirect('./posts')->with('success','Post Deleted');
+
+        
+
+        
     }
 }
