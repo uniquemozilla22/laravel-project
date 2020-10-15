@@ -5,6 +5,8 @@
       <a class="p-2 text-dark" href="./services">Services</a>
       <a class="p-2 text-dark" href="./about">About</a>
       <a class="p-2 text-dark" href="./posts">Blog</a>
+      <a class="p-2 text-dark" href="./register">Register</a>
+
     </nav>
-    <a class="btn btn-outline-primary" href="./posts/create">Create a Post</a>
+    <a class="btn btn-outline-primary" href="./login">Login</a>
   </div>
