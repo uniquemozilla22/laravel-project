@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PagesController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/hello','PagesController@index');
+Route::get('/','PagesController@index');
 
 Route::get('/about','PagesController@about');
 
@@ -29,3 +31,5 @@ Route::resource('posts','PostController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/dashboard','DashboardController@index');
